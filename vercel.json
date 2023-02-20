@@ -1,0 +1,4 @@
+{
+  "installCommand": "pnpm compile",
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/dist" }]
+}
