@@ -1,15 +1,10 @@
-import { v4 } from 'uuid'
-import Koa from 'koa'
-import Router from '@koa/router'
+import 'reflect-metadata'
 
-const koa = new Koa()
+import { createKoaServer } from 'routing-controllers'
+import { UserController } from './controllers/user.controller'
 
-const router = new Router()
-
-router.get('/api', ctx => {
-  ctx.body = '123'
+const app = createKoaServer({
+  controllers: [UserController] // we specify controllers we want to use
 })
 
-koa.use(router.routes()).use(router.allowedMethods())
-
-export default koa
+export default app
